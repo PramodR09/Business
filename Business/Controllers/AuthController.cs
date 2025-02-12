@@ -59,13 +59,13 @@ namespace Banking_Application.Controllers
                     return Ok(new { token });
                 }
 
-                // Try to authenticate as Customer
+                // Try to authenticate as Customer test
                 var userCustomer = _context.Customers
                     .FirstOrDefault(u => u.Cus_EmailId == request.Username);
 
                 if (userCustomer != null)
                 {
-                    // Verify the password
+                    // Verify the password 
                     if (!BCrypt.Net.BCrypt.Verify(request.Password, userCustomer.Cus_Password))
                     {
                         return Unauthorized("Invalid username or password.");
